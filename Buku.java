@@ -12,6 +12,7 @@ public class Buku {
 
     public String getJudul() { return judul; }
     public boolean isTersedia() { return tersedia; }
+    public LocalDate getBatasKembali() { return batasKembali; }
 
     public void setTersedia(boolean status) {
         tersedia = status;
@@ -19,9 +20,5 @@ public class Buku {
 
     public void setBatasKembali(LocalDate t) {
         batasKembali = t;
-    }
-
-    public LocalDate getBatasKembali() {
-        return batasKembali;
     }
 }

@@ -4,22 +4,14 @@ public class Admin {
     private String nama;
     private String nim;
 
-    // Constructor
     public Admin(String nama, String nim) {
         this.nama = nama;
         this.nim = nim;
     }
 
-    // Getter (Encapsulation)
-    public String getNama() {
-        return nama;
-    }
+    public String getNama() { return nama; }
+    public String getNim() { return nim; }
 
-    public String getNim() {
-        return nim;
-    }
-
-    // Tambah Buku
     public void tambahBuku(ArrayList<Buku> daftarBuku, Scanner input) {
         System.out.print("Masukkan judul buku: ");
         String judul = input.nextLine();
@@ -28,7 +20,6 @@ public class Admin {
         System.out.println("Buku berhasil ditambahkan!");
     }
 
-    // Hapus Buku
     public void hapusBuku(ArrayList<Buku> daftarBuku, Scanner input) {
         if (daftarBuku.isEmpty()) {
             System.out.println("Belum ada buku!");
@@ -50,7 +41,6 @@ public class Admin {
         daftarBuku.remove(index);
     }
 
-    // Tampil Buku
     public void tampilBuku(ArrayList<Buku> daftarBuku) {
         if (daftarBuku.isEmpty()) {
             System.out.println("Belum ada buku di perpustakaan.");

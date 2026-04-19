@@ -50,8 +50,13 @@ public class User {
         }
 
         tampilBuku(daftarBuku);
+
         System.out.print("Masukkan index (contoh: 1 3): ");
         String[] pilihan = input.nextLine().split(" ");
+
+        // 🔥 FITUR SIMULASI TELAT
+        System.out.print("Mode simulasi telat? (y/n): ");
+        String modeTelat = input.nextLine();
 
         if (bukuDipinjam.size() + pilihan.length > maxPinjam) {
             System.out.println("Melebihi batas maksimal!");
@@ -75,7 +80,14 @@ public class User {
                 }
 
                 b.setTersedia(false);
-                b.setBatasKembali(LocalDate.now().plusDays(7));
+
+                // 🔥 LOGIC TELAT / NORMAL
+                if (modeTelat.equalsIgnoreCase("y")) {
+                    b.setBatasKembali(LocalDate.now().minusDays(3));
+                } else {
+                    b.setBatasKembali(LocalDate.now().plusDays(7));
+                }
+
                 bukuDipinjam.add(b);
 
                 System.out.println("Berhasil pinjam: " + b.getJudul());
